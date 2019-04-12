@@ -19,6 +19,14 @@ build:
   project: InitialStateClient.sln
   verbosity: minimal
 
-after_build:
+test:
+  assemblies:
+    - '**\*.Specs.dll'
+
+after_test:
   - ps: nuget pack src/InitialStateClient/InitialStateClient.nuspec -Version (get-item env:GitVersion_InformationalVersion).Value
-  - ps: nuget push *.nupkg -ApiKey (get-item env:nuget_publish).Value -Source https://api.nuget.org/v3/index.json
+  - ps: if(-not $env:APPVEYOR_PULL_REQUEST_NUMBER){ 
+          nuget push *.nupkg 
+              -ApiKey (get-item env:nuget_publish).Value 
+              -Source https://api.nuget.org/v3/index.json 
+        }
