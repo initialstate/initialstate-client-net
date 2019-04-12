@@ -1,0 +1,18 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>initialstate-client-net</id>
+    <version>$version$</version>
+    <title>Initial State Events API .NET Client</title>
+    <authors>David Sulpy</authors>
+    <owners>David Sulpy</owners>
+    <licenseUrl>https://raw.githubusercontent.com/initialstate/initialstate-client-net/master/InitialStateClient_LICENSE.txt</licenseUrl>
+    <projectUrl>https://github.com/initialstate/initialstate-net-client</projectUrl>
+    <iconUrl>https://www.initialstate.com/images/initialstate-icon.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This package makes sending events to Initial State's events API simple from a C# application</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2019 Tektronix, Inc.</copyright>
+    <tags>initialstate streaming visualization analytics</tags>
+  </metadata>
+</package>

@@ -1,0 +1,24 @@
+version: 1.0.{build}
+
+environment:
+  nuget_publish:
+    secure: rDlnJY8kT73e2PF3zSUxe4RO/pDFN1FW9YrDEItnjUOTVVUb3dfX/kN6Hnb5ExoF
+
+branches:
+  only:
+    - master
+
+install:
+  - choco install gitversion.portable -y
+
+before_build:
+  - ps: nuget restore
+  - ps: gitversion /l console /output buildserver /updateassemblyinfo /b (get-item env:APPVEYOR_REPO_BRANCH).Value
+    
+build:
+  project: InitialStateClient.sln
+  verbosity: minimal
+
+after_build:
+  - ps: nuget pack src/InitialStateClient/InitialStateClient.nuspec -Version (get-item env:GitVersion_InformationalVersion).Value
+  - ps: nuget push *.nupkg -ApiKey (get-item env:nuget_publish).Value -Source https://api.nuget.org/v3/index.json
