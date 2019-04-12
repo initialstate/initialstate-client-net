@@ -32,4 +32,4 @@ deploy:
   api_key:
     secure: rDlnJY8kT73e2PF3zSUxe4RO/pDFN1FW9YrDEItnjUOTVVUb3dfX/kN6Hnb5ExoF
   skip_symbols: true
-  artifact: **\*InitialStateClient.nupkg
+  artifact: '**\*InitialStateClient.nupkg''
