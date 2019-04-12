@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{8B4F31
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InitialStateClient.Specs", "src\InitialStateClient.Specs\InitialStateClient.Specs.csproj", "{C2694A90-B392-4128-83CC-F5171216DEB5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InitialStateClient.Specs", "specs\InitialStateClient.Specs\InitialStateClient.Specs.csproj", "{C2694A90-B392-4128-83CC-F5171216DEB5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
