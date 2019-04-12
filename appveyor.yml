@@ -8,8 +8,6 @@ branches:
   only:
     - master
 
-skip_non_tags: true
-
 before_build:
   - ps: nuget restore
     
