@@ -57,7 +57,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\InitialStateClient\InitialStateClient.csproj">
+    <ProjectReference Include="..\..\src\InitialStateClient\InitialStateClient.csproj">
       <Project>{B27DEB5E-A85A-4083-85ED-551BF67E2E26}</Project>
       <Name>InitialStateClient</Name>
     </ProjectReference>
