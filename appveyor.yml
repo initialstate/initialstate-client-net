@@ -14,7 +14,6 @@ before_build:
 build:
   project: InitialStateClient.sln
   verbosity: minimal
-  publish_nuget: true
 
 assembly_info:
   patch: true
@@ -27,7 +26,9 @@ test:
   assemblies:
     - '**\*.Specs.dll'
 
-nuget:
-  account_feed: true
-  project_feed: true
-  disable_publish_on_pr: true
+deploy:
+  provider: NuGet
+  #server:
+  api_key:
+    secure: rDlnJY8kT73e2PF3zSUxe4RO/pDFN1FW9YrDEItnjUOTVVUb3dfX/kN6Hnb5ExoF
+  skip_symbols: true
