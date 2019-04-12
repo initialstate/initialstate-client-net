@@ -28,7 +28,7 @@ test:
     - '**\*.Specs.dll'
 
 artifacts:
-  - path: 'initialstate-client-net.{version}.nupkg'
+  - path: "initialstate-client-net.{version}.nupkg"
 
 deploy:
   provider: NuGet
@@ -36,4 +36,4 @@ deploy:
   api_key:
     secure: rDlnJY8kT73e2PF3zSUxe4RO/pDFN1FW9YrDEItnjUOTVVUb3dfX/kN6Hnb5ExoF
   skip_symbols: true
-  artifact: 'initialstate-client-net.{version}.nupkg'
+  artifact: "initialstate-client-net.{version}.nupkg"
