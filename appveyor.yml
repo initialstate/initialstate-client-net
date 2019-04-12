@@ -27,7 +27,8 @@ test:
   assemblies:
     - '**\*.Specs.dll'
 
-  
+artifacts:
+  - path: '**\*InitialStateClient.nupkg'
 
 deploy:
   provider: NuGet
