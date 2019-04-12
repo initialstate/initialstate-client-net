@@ -8,25 +8,28 @@ branches:
   only:
     - master
 
-install:
-  - choco install gitversion.portable -y
+skip_non_tags: true
 
 before_build:
   - ps: nuget restore
-  - ps: gitversion /l console /output buildserver /updateassemblyinfo /b (get-item env:APPVEYOR_REPO_BRANCH).Value
     
 build:
   project: InitialStateClient.sln
   verbosity: minimal
+  publish_nuget: true
+
+assembly_info:
+  patch: true
+  file: src/InitialStateClient/Properties/AssemblyInfo.cs
+  assembly_version: $(appveyor_build_version).0
+  assembly_file_version: $(appveyor_build_version).0
+  assembly_informational_version: $(appveyor_build_version)
 
 test:
   assemblies:
     - '**\*.Specs.dll'
 
-after_test:
-  - ps: nuget pack src/InitialStateClient/InitialStateClient.nuspec -Version (get-item env:GitVersion_InformationalVersion).Value
-  - ps: if(-not $env:APPVEYOR_PULL_REQUEST_NUMBER){ 
-          nuget push *.nupkg 
-              -ApiKey (get-item env:nuget_publish).Value 
-              -Source https://api.nuget.org/v3/index.json 
-        }
+nuget:
+  account_feed: true
+  project_feed: true
+  disable_publish_on_pr: true
